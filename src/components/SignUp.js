@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { StyledForm, StyledH2, StyledLink } from "../styles/commonStyles";
 
 export default function SignUp() {
     const [name, setName] = useState("");
@@ -20,8 +21,8 @@ export default function SignUp() {
 
     return (
         <div>
-            <h2>Criar Conta</h2>
-            <form onSubmit={signUp}>
+            <StyledH2>Criar Conta</StyledH2>
+            <StyledForm onSubmit={signUp}>
                 <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Nome" required />
                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" required />
                 <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Senha" required />
@@ -33,8 +34,8 @@ export default function SignUp() {
                     required
                 />
                 <button type="submit">Cadastrar</button>
-            </form>
-            <a>Já possui cadastro? Entre agora!</a>
+            </StyledForm>
+            <StyledLink>Já possui cadastro? Entre agora!</StyledLink>
         </div>
     )
 }
