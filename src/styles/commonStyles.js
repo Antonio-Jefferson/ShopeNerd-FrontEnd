@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -40,7 +41,7 @@ export const StyledForm = styled.form`
     }
 `
 
-export const StyledLink = styled.a`
+export const StyledLink = styled(Link)`
     display: block;
     width: 100%;
     text-align: center;
