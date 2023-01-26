@@ -94,8 +94,15 @@ export const StyledForm = styled.form`
         ::placeholder{
             color: #858585;
         }
+        &:disabled{
+        background-color: #F2F2F2;
+        color: #AFAFAF;
+    }
     }
     button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         height: 58px;
         color: #FFFFFF;
