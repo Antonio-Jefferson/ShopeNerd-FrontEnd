@@ -1,6 +1,75 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+export const LayoutPage = styled.div`
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+`
+
+export const ConteinerHeader = styled.div`
+    width: 100%;
+    height: 101px;
+    background: #0F52BA;
+    padding: 28px 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    input{
+        width: 500px;
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+        padding: 8px;
+    }
+    div{
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+    p{
+        color: #fff;
+    }
+    a{
+        text-decoration: none;
+        color: #fff;
+    }
+    a:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+`
+
+export const Logo = styled.div`
+    display: flex;
+    color: #fff;
+    gap: 4px;
+    h1{
+        font-weight: 600;
+        font-size: 40px;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+`
+
+export const Cart = styled.div`
+    width: 90px;
+    height: 45px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+`
+
+export const ContainerForm = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 0;
+`
 
 export const StyledH2 = styled.h2`
     width: 100%;
@@ -42,11 +111,11 @@ export const StyledForm = styled.form`
 `
 
 export const StyledLink = styled(Link)`
-    display: block;
-    width: 100%;
-    text-align: center;
     text-decoration: none;
     font-size: 16px;
     font-weight: 700;
     color: #0F52BA;
+`
+
+export const StyledFooter = styled.footer`
 `
