@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { StyledForm } from "../styles/commonStyles";
 import { ThreeDots } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
     const [name, setName] = useState("");
@@ -9,7 +10,7 @@ export default function SignUp() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-
+    const navigate = useNavigate();
 
     async function signUp(event) {
         event.preventDefault();
@@ -18,6 +19,7 @@ export default function SignUp() {
         try {
             await axios.post("http://localhost:5005/sign-up", body);
             setIsLoading(false);
+            navigate("/sign-in");
         } catch (err) {
             alert("Um ou mais campos estão inválidos, tente novamente.");
             setIsLoading(false);
