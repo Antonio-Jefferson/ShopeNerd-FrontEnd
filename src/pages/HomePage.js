@@ -3,11 +3,15 @@ import { useEffect, useState } from "react"
 import styled from "styled-components"
 import Cart from "../components/Cart"
 import Header from "../components/Header"
+import Menu from "../components/Menu"
+
 
 export default function HomePage() {
     const [productsData, setProductsData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [cartMenu, setCartMenu] = useState(false);
+    const [menuActive, setMenuActive] = useState(false)
+
     useEffect(()=>{
         async function fetchData() {
             try {
@@ -24,7 +28,8 @@ export default function HomePage() {
 
     return (
         <ConteinerHome>
-            <Header setCartMenu={setCartMenu} cartMenu={cartMenu}/>
+            <Header setMenuActive={setMenuActive} setCartMenu={setCartMenu} cartMenu={cartMenu}/>
+            {menuActive &&  <Menu setMenuActive={setMenuActive}/>}
             {cartMenu && <Cart setCartMenu={setCartMenu} />}
         </ConteinerHome>
     )
