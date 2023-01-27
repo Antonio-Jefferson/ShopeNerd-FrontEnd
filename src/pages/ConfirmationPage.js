@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-import e from 'cors';
 
 const itens = [{ name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }]
 export default function ConfirmationPage() {
