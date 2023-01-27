@@ -3,13 +3,14 @@ import { FaSearch } from "react-icons/fa"
 import { Link } from "react-router-dom";
 import { ConteinerHeader, Logo, Cart } from "../styles/commonStyles";
 
-export default function Header({ setCartMenu, setMenuActive }) {
+export default function Header({ setCartMenu, cartMenu,setCartMenu, setMenuActive }) {
+
     return (
         <ConteinerHeader>
             <Logo>
                 <h1><Link to="/">ShopeNerd</Link></h1>
             </Logo>
-            <Cart onClick={() => setCartMenu(true)}>
+            <Cart onClick={() => setCartMenu(!cartMenu)}>
                 <AiOutlineShoppingCart height={18} width={19} />
                 <span>0</span>
             </Cart>
