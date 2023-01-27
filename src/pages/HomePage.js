@@ -2,9 +2,11 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 import Header from "../components/Header"
+import Menu from "../components/Menu"
 export default function HomePage() {
     const [productsData, setProductsData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [menuActive, setMenuActive] = useState(false)
     useEffect(()=>{
         async function fetchData() {
             try {
@@ -21,7 +23,8 @@ export default function HomePage() {
 
     return (
         <ConteinerHome>
-            <Header/>
+            <Header setMenuActive={setMenuActive}/>
+            {menuActive &&  <Menu setMenuActive={setMenuActive}/>}
         </ConteinerHome>
     )
 }
