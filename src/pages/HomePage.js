@@ -1,10 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import styled from "styled-components"
+import Cart from "../components/Cart"
 import Header from "../components/Header"
+
 export default function HomePage() {
     const [productsData, setProductsData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [cartMenu, setCartMenu] = useState(false);
     useEffect(()=>{
         async function fetchData() {
             try {
@@ -21,7 +24,8 @@ export default function HomePage() {
 
     return (
         <ConteinerHome>
-            <Header/>
+            <Header setCartMenu={setCartMenu} cartMenu={cartMenu}/>
+            {cartMenu && <Cart setCartMenu={setCartMenu} />}
         </ConteinerHome>
     )
 }
