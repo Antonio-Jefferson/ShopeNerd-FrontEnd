@@ -1,16 +1,21 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import styled from "styled-components"
+import Cart from "../components/Cart"
 import Header from "../components/Header"
 import Menu from "../components/Menu"
 import MenuFilter from "../components/MenuFilter"
 import CardProduct from "../components/CardProduct"
 
+
 export default function HomePage() {
     const [productsData, setProductsData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [cartMenu, setCartMenu] = useState(false);
     const [menuActive, setMenuActive] = useState(false)
-    useEffect(() => {
+
+
+    useEffect(()=>{
         async function fetchData() {
             try {
                 const url = ""
@@ -26,7 +31,8 @@ export default function HomePage() {
 
     return (
         <ConteinerHome>
-            <Header setMenuActive={setMenuActive} />
+
+            <Header setMenuActive={setMenuActive} setCartMenu={setCartMenu} cartMenu={cartMenu}/>
             <Main>
                 <MenuFilter />
                 <DivCard>
@@ -43,6 +49,7 @@ export default function HomePage() {
                 </DivCard>
             </Main>
             {menuActive && <Menu setMenuActive={setMenuActive} />}
+            {cartMenu && <Cart setCartMenu={setCartMenu} />}
         </ConteinerHome>
     )
 }

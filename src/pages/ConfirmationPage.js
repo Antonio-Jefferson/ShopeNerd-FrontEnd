@@ -118,6 +118,9 @@ export default function ConfirmationPage() {
 
 
 const Header = styled.div`
+position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 101px;
     background: #0F52BA;
@@ -139,6 +142,7 @@ const Body = styled.div`
  width: 100%;
  display: flex;
  justify-content: space-evenly;
+ padding-top: 101px;
 `
 
 const Pedidos = styled.div`
