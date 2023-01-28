@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa"
 import { Link } from "react-router-dom";
 import { ConteinerHeader, Logo, Cart } from "../styles/commonStyles";
 
-export default function Header({ setCartMenu, cartMenu,setCartMenu, setMenuActive }) {
+export default function Header({ setCartMenu, cartMenu, setMenuActive }) {
 
     return (
         <ConteinerHeader>
