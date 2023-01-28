@@ -32,7 +32,7 @@ export default function HomePage() {
     return (
         <ConteinerHome>
 
-            <Header setMenuActive={setMenuActive} setCartMenu={setCartMenu} cartMenu={cartMenu}/>
+            <Header  setMenuActive={setMenuActive} setCartMenu={setCartMenu} cartMenu={cartMenu}/>
             <Main>
                 <MenuFilter />
                 <DivCard>
