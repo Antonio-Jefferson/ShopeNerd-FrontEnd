@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { RiShoppingBag3Line } from "react-icons/ri"
 
-export default function Card() {
+export default function CardProduct() {
     return (
         <ConteinerCard>
             <div>
@@ -14,7 +14,6 @@ export default function Card() {
                 </InfPrice>
                 <Description>descrição</Description>
             </div>
-
             <AddCart>
                 <RiShoppingBag3Line color="#fff" />
                 COMPRAR
