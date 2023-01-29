@@ -8,9 +8,10 @@ import ConfirmationPage from "./pages/ConfirmationPage";
 
 function App() {
   const [token, setToken] = useState("");
+  const [name, setName] = useState("");
 
   return (
-    <AuthContext.Provider value={{ token, setToken }}>
+    <AuthContext.Provider value={{ token, setToken, name, setName }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
