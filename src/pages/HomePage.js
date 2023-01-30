@@ -20,10 +20,10 @@ export default function HomePage() {
         if (category) {
             const filteredProducts = productsData.filter(product => product.category === category)
             setFilteredData(filteredProducts)
-        }
-        
+        }else{
+            setFilteredData(productsData)
+        } 
     }
-    console.log(productsData)
     useEffect(() => {
         async function fetchData() {
             try {
@@ -46,7 +46,7 @@ export default function HomePage() {
                 <MenuFilter filterByCategory={filterByCategory} />
                 <DivCard>
                     {isLoading && Array(30).fill(0).map(() => <CardSkeleton />)}
-                    {productsData.map(product => <CardProduct product={product} />)}
+                    {filteredData.map(product => <CardProduct product={product} />)}
                 </DivCard>
             </Main>
             {menuActive && <Menu setMenuActive={setMenuActive} />}

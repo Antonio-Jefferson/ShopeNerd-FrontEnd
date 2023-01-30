@@ -1,10 +1,9 @@
-import { useState } from "react";
+
 import styled from "styled-components"
 
-export default function MenuFilter({ productsData }) {
-    const [selectedCategory, setSelectedCategory] = useState()
+export default function MenuFilter({filterByCategory }) {
     const handleClick = (category) => {
-        setSelectedCategory(category);
+        filterByCategory(category);
     };
 
     return (
