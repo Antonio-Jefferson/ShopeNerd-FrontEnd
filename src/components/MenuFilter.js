@@ -1,15 +1,14 @@
-import { useState } from "react";
+
 import styled from "styled-components"
 
-export default function MenuFilter({ productsData }) {
-    const [selectedCategory, setSelectedCategory] = useState()
+export default function MenuFilter({filterByCategory }) {
     const handleClick = (category) => {
-        setSelectedCategory(category);
+        filterByCategory(category);
     };
 
     return (
         <>
-            <Menu>
+            <Menu className="visibilete">
                 <ul>
                     <li onClick={() => handleClick('Processadores')}>Processadores</li>
                     <li onClick={() => handleClick('Cooler')}>
@@ -34,10 +33,18 @@ export default function MenuFilter({ productsData }) {
 }
 
 const Menu = styled.div`
-    width: 253px;
-    height: 100vh;
-    background-color: #D9D9D9;
+    @media (max-width:835px) {
+        ul{
+            display: none;
+        }
+    }
     ul{
+        width: 253px;
+        height: 100vh;
+        background-color: #D9D9D9;
+        position: fixed;
+        left: 0px;
+        top: 101px;
         padding: 25px;
         li{
             margin-bottom: 35px;

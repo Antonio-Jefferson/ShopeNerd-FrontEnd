@@ -9,8 +9,8 @@ export default function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-
     const { setToken, setNameUser } = useContext(AuthContext);
+
     const navigate = useNavigate();
 
     async function signIn(event) {
@@ -19,6 +19,7 @@ export default function SignIn() {
         const body = { email, password };
         try {
             const response = await axios.post("https://shope-nerd-api-v1.onrender.com/sign-in", body);
+            console.log(response.data)
             setToken(response.data.token);
             setNameUser(response.data.name);
             setIsLoading(false);

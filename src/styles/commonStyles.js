@@ -16,6 +16,15 @@ export const ConteinerHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top:0px;
+    right: 0px;
+    @media (max-width:1255px) {
+        input,span{
+            display: none;
+        }
+        
+    }
     input{
         width: 500px;
         height: 35px;
