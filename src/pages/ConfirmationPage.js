@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components'
+import axios from 'axios'
+import AuthContext from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 
 const itens = [{ name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }]
 export default function ConfirmationPage() {
@@ -10,10 +14,30 @@ export default function ConfirmationPage() {
   const [endereco, setEndereco] = React.useState('')
   const [numEndereco, setNumEndereco] = React.useState('')
   const [pagamento, setPagamento] = React.useState('')
+  const nav = useNavigate()
 
-  function FinalizarCompra(e) {
+  async function FinalizarCompra(e) {
     e.preventDefault()
-    console.log(pagamento, endereco)
+    const { token } = useContext(AuthContext)
+
+    const config = {
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    }
+    try{
+      await axios.put('http://localhost:5005/products', { id: ["63d525649159378649bc33f1", "63d5260d9159378649bc33f2"] }, config)
+      alert('Obrigado pela compra!')
+      nav("/")
+    } catch(err) {
+      alert(err.message)
+      setNome('')
+      setCidade('')
+      setCep('')
+      setEndereco('')
+      setNumEndereco('')
+    }
+    
 
   }
 

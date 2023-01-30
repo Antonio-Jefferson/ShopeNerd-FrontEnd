@@ -1,9 +1,9 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { StyledForm } from "../styles/commonStyles";
 import { ThreeDots } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../contexts/AuthContext";
+
 
 export default function SignUp() {
     const [name, setName] = useState("");
