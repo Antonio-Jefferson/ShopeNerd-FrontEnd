@@ -4,7 +4,7 @@ const MOCK = [
       "name": "RYZEN 5 7600",
       "image": "https://m.media-amazon.com/images/I/51llOgko9EL._AC_SL1500_.jpg",
       "price":"1799",
-      "category":"processador",
+      "category":"Processador",
       "description":"PROCESSADOR AMD RYZEN 5 7600, 6-CORE, 12-THREADS, 3.8GHZ (5.1GHZ TURBO), CACHE 38MB, AM5, 100-100001015BOX",
       "amount":"200"
     },
@@ -13,7 +13,7 @@ const MOCK = [
       "name": "Ryzen 5 5600G",
       "image": "https://m.media-amazon.com/images/I/51f2hkWjTlL._AC_SL1200_.jpg",
       "price":"999",
-      "category":"processador",
+      "category":"Processador",
       "description":"PROCESSADOR AMD RYZEN 5 5600G, 3.9GHz (4.4GHz Max Turbo), AM4, Vídeo Integrado, 6 Núcleos ",
       "amount":"200"
     },
@@ -23,7 +23,7 @@ const MOCK = [
       "name": "Gigabyte B450M Gaming",
       "image": "https://m.media-amazon.com/images/I/712MufLY2fL._AC_SL1000_.jpg",
       "price":"640",
-      "category":"placa mãe",
+      "category":"Placa mãe",
       "description":"Placa Mãe Gigabyte B450M Gaming, Chipset B450, AMD AM4, mATX, DDR4",
       "amount":"200"
     },
@@ -32,7 +32,7 @@ const MOCK = [
       "name": "Gigabyte B550M AORUS",
       "image": "https://m.media-amazon.com/images/I/712MufLY2fL._AC_SL1000_.jpg",
       "price":"1120",
-      "category":"placa mãe",
+      "category":"Placa mãe",
       "description":"Placa Mãe Gigabyte B550M AORUS ELITE (AM4/DDR4/HDMI/M.2(PCIe,NVMe,SATA3)/VRM Solution/USB3.2) - B550M AORUS ELITE ",
       "amount":"200"
     },
@@ -50,7 +50,7 @@ const MOCK = [
       "name": "Kit 3 Cooler Fan Led Rgb",
       "image": "https://m.media-amazon.com/images/I/6186QUaufiL._AC_SL1000_.jpg",
       "price":"120",
-      "category":"Coller",
+      "category":"Cooler",
       "description":"Kit 3 Cooler Fan Led Rgb 120mm 12cm Gabinete Pc Gamer Ventoinha ",
       "amount":"200"
     },
