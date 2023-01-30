@@ -4,6 +4,7 @@ import axios from 'axios'
 import AuthContext from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
+
 const itens = [{ name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }]
 export default function ConfirmationPage() {
 

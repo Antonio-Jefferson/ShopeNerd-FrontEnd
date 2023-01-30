@@ -3,13 +3,14 @@ import { FaSearch } from "react-icons/fa"
 import { Link } from "react-router-dom";
 import { ConteinerHeader, Logo, Cart } from "../styles/commonStyles";
 
-export default function Header({ setCartMenu }) {
+export default function Header({ setCartMenu, cartMenu, setMenuActive }) {
+
     return (
         <ConteinerHeader>
             <Logo>
                 <h1><Link to="/">ShopeNerd</Link></h1>
             </Logo>
-            <Cart onClick={() => setCartMenu(true)}>
+            <Cart onClick={() => setCartMenu(!cartMenu)}>
                 <AiOutlineShoppingCart height={18} width={19} />
                 <span>0</span>
             </Cart>
@@ -18,7 +19,7 @@ export default function Header({ setCartMenu }) {
                 <FaSearch fontSize={25} color="#FFF" />
             </div>
             <p>Faça <Link to={"/sign-in"}>LOGIN</Link>  ou <br /> crie seu <Link to={"/sign-up"}>CADASTRO</Link></p>
-            <AiOutlineMenuFold fontSize={45} color="#fff" />
+            <AiOutlineMenuFold onClick={()=> setMenuActive(true)} fontSize={45} color="#fff" />
         </ConteinerHeader>
     )
 }
