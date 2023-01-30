@@ -16,7 +16,7 @@ export default function HomePage() {
     const [cartMenu, setCartMenu] = useState(false);
     const [menuActive, setMenuActive] = useState(false)
     const [filteredData, setFilteredData] = useState([])
-    // console.log(productsData)
+    console.log(productsData)
    
     function filterByCategory(category) {
         if (category) {
@@ -31,7 +31,7 @@ export default function HomePage() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const url = "http://localhost:5005/products"
+                const url = "https://shope-nerd-api-v1.onrender.com/products"
                 const { data } = await axios.get(url);
                 setProductsData(MOCK)
                 setIsLoading(false)

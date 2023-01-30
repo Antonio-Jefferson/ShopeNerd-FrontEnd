@@ -5,7 +5,7 @@ import AuthContext from "../contexts/AuthContext"
 
 export default function CardProduct(props) {
     const { _id, name, description, price, image} = props.product;
-    // console.log({ name, description, price, image})
+    console.log({ name, description, price, image})
     const {productsID, setProductsID} =useContext(AuthContext)
     const selected = (id)=>{
         if(!productsID.includes(id)){
