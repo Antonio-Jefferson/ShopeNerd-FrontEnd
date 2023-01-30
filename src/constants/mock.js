@@ -29,7 +29,7 @@ const MOCK = [
         "image": "https://m.media-amazon.com/images/I/712MufLY2fL._AC_SL1000_.jpg",
         "price":"1120",
         "category":"placa mãe",
-        "description":"Placa Mãe Gigabyte B550M AORUS ELITE (AM4/DDR4/HDMI/M.2(PCIe,NVMe,SATA3)/VRM Solution/USB3.2) - B550M AORUS ELITE ",
+        "description":"Placa Mãe Gigabyte B550M AORUS ELITE(AM4/DDR4/HDMI/M.2/VRM Solution/USB3.2)",
         "amount":"200"
       },
       {
@@ -82,7 +82,7 @@ const MOCK = [
       }
       ,
       {
-        "name": "HD SSD Kingston SA400S37 480GB ",
+        "name": "SSD Kingston SA400S37 480GB",
         "image": "https://m.media-amazon.com/images/I/81Yleainj1L._AC_SL1500_.jpg",
         "price":"188",
         "category":"Armazenamentos",

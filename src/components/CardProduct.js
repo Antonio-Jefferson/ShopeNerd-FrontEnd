@@ -3,7 +3,8 @@ import { RiShoppingBag3Line } from "react-icons/ri"
 import { useContext } from "react"
 import AuthContext from "../contexts/AuthContext"
 
-export default function CardProduct({ _id, name, description, price, image}) {
+export default function CardProduct(props) {
+    const { _id, name, description, price, image} = props.product;
     console.log({ name, description, price, image})
     const {productsID, setProductsID} =useContext(AuthContext)
     const selected = (id)=>{
@@ -21,7 +22,7 @@ export default function CardProduct({ _id, name, description, price, image}) {
                     <p>{name}</p>
                     <span>R${price}</span>
                 </InfPrice>
-                <Description>{description}</Description>
+                <Description>{description.length <= 100 ? description.substring(0,100):`${description.substring(0,100)}...`}</Description>
             </div>
             <AddCart  onClick={()=> selected(_id)}>
                 <RiShoppingBag3Line color="#fff" />
@@ -31,8 +32,8 @@ export default function CardProduct({ _id, name, description, price, image}) {
     )
 }
 const ConteinerCard = styled.div`
-    max-width: 217px;
-    height: 285px;
+    width: 220px;
+    height: 310px;
     background: #FFFFFF;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
     border-radius: 8px;
@@ -48,6 +49,7 @@ const Img = styled.div`
     height: 180px;
     img{
         width: 100%;
+        height: 100%;
     }
 
 `
