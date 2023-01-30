@@ -86,6 +86,7 @@ export const StyledH2 = styled.h2`
     font-size: 34px;
     font-weight: 700;
     color: #0F52BA;
+    margin-top: 150px;
 `
 
 export const StyledForm = styled.form`
