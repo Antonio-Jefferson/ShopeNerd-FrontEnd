@@ -1,10 +1,12 @@
+import { useContext } from "react";
 import { AiOutlineShoppingCart, AiOutlineMenuFold } from "react-icons/ai";
 import { FaSearch } from "react-icons/fa"
 import { Link } from "react-router-dom";
+import AuthContext from "../contexts/AuthContext";
 import { ConteinerHeader, Logo, Cart } from "../styles/commonStyles";
 
 export default function Header({ setCartMenu, cartMenu, setMenuActive }) {
-
+    const {nameUser, productsID} = useContext(AuthContext)
     return (
         <ConteinerHeader>
             <Logo>
@@ -12,13 +14,13 @@ export default function Header({ setCartMenu, cartMenu, setMenuActive }) {
             </Logo>
             <Cart onClick={() => setCartMenu(!cartMenu)}>
                 <AiOutlineShoppingCart height={18} width={19} />
-                <span>0</span>
+                <span>{productsID.length}</span>
             </Cart>
             <div>
                 <input type="text" placeholder="Pesquisar" />
                 <FaSearch fontSize={25} color="#FFF" />
             </div>
-            <p>Faça <Link to={"/sign-in"}>LOGIN</Link>  ou <br /> crie seu <Link to={"/sign-up"}>CADASTRO</Link></p>
+            {nameUser ? <p>Olá, {nameUser}</p>:<p>Faça <Link to={"/sign-in"}>LOGIN</Link>  ou <br /> crie seu <Link to={"/sign-up"}>CADASTRO</Link></p>}
             <AiOutlineMenuFold onClick={()=> setMenuActive(true)} fontSize={45} color="#fff" />
         </ConteinerHeader>
     )

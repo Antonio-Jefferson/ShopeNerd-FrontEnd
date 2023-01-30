@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { StyledForm } from "../styles/commonStyles";
 import { ThreeDots } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../contexts/AuthContext";
 
 export default function SignUp() {
     const [name, setName] = useState("");
@@ -11,14 +12,15 @@ export default function SignUp() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
-
+    const {setNameUser} = useContext(AuthContext)
     async function signUp(event) {
         event.preventDefault();
         setIsLoading(true);
         const body = { name, email, password, confirmPassword };
         try {
-            await axios.post("http://localhost:5005/sign-up", body);
+            await axios.post("https://shope-nerd-api-v1.onrender.com/sign-up", body);
             setIsLoading(false);
+            setNameUser(name)
             navigate("/sign-in");
         } catch (err) {
             alert("Um ou mais campos estão inválidos, tente novamente.");

@@ -1,30 +1,31 @@
 import styled from "styled-components"
 import { MdCancel } from "react-icons/md"
 
-export default function ProductCart() {
+export default function ProductCart({image, name, price,quantity, setQuantity}) {
     
+    const handleQuantityChange = value => {
+      setQuantity(quantity + value);
+    };
+  
     return (
-        <ConteinerProduct>
-            <Img>
-                <img src="image" alt="iphone-x" />
-            </Img>
-            <DivInfo>
-                Apple iPhone-X 128GB
-            </DivInfo>
-            <DivQtd>
-                <p>Qtd:</p>
-                <div>
-                    <span>-</span>
-                    <span>0</span>
-                    <span>+</span>
-                </div>
-            </DivQtd>
-            <div>R$100</div>
-            <Cancel>
-                <MdCancel fontSize={23} />
-            </Cancel>
-
-        </ConteinerProduct>
+      <ConteinerProduct>
+        <Img>
+          <img src={image} alt={name} />
+        </Img>
+        <DivInfo>{name}</DivInfo>
+        <DivQtd>
+          <p>Qtd:</p>
+          <div>
+            <span onClick={() => handleQuantityChange(-1)}>-</span>
+            <span>{quantity}</span>
+            <span onClick={() => handleQuantityChange(1)}>+</span>
+          </div>
+        </DivQtd>
+        <div>R${price}</div>
+        <Cancel>
+          <MdCancel fontSize={23} />
+        </Cancel>
+      </ConteinerProduct>
     )
 }
 
