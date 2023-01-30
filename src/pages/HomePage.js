@@ -8,7 +8,6 @@ import MenuFilter from "../components/MenuFilter"
 import CardProduct from "../components/CardProduct"
 import CardSkeleton from "../components/CardSkeleton"
 import AuthContext from "../contexts/AuthContext"
-import MOCK  from "../constants/mock"
 
 export default function HomePage() {
     const { productsData, setProductsData } = useContext(AuthContext)
