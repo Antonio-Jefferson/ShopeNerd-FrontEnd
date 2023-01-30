@@ -19,7 +19,6 @@ export default function SignUp() {
         try {
             await axios.post("https://shope-nerd-api-v1.onrender.com/sign-up", body);
             setIsLoading(false);
-            setNameUser(name)
             navigate("/sign-in");
         } catch (err) {
             alert("Um ou mais campos estão inválidos, tente novamente.");
