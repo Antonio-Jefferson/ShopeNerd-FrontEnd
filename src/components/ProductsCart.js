@@ -1,32 +1,34 @@
 import styled from "styled-components"
 import { MdCancel } from "react-icons/md"
 
-export default function ProductCart({image, name, price,quantity, setQuantity}) {
-    
-    const handleQuantityChange = value => {
-      setQuantity(quantity + value);
-    };
-  
-    return (
-      <ConteinerProduct>
-        <Img>
-          <img src={image} alt={name} />
-        </Img>
-        <DivInfo>{name}</DivInfo>
-        <DivQtd>
-          <p>Qtd:</p>
-          <div>
-            <span onClick={() => handleQuantityChange(-1)}>-</span>
-            <span>{quantity}</span>
-            <span onClick={() => handleQuantityChange(1)}>+</span>
-          </div>
-        </DivQtd>
-        <div>R${price}</div>
-        <Cancel>
-          <MdCancel fontSize={23} />
-        </Cancel>
-      </ConteinerProduct>
-    )
+
+export default function ProductCart({ quantity, setQuantity, product }) {
+  const { image, name, price } = product;
+  const handleQuantityChange = value => {
+    setQuantity(quantity + value);
+  };
+
+
+  return (
+    <ConteinerProduct>
+      <Img>
+        <img src={image} alt={name} />
+      </Img>
+      <DivInfo>{name}</DivInfo>
+      <DivQtd>
+        <p>Qtd:</p>
+        <div>
+          <span onClick={() => handleQuantityChange(-1)}>-</span>
+          <span>{quantity}</span>
+          <span onClick={() => handleQuantityChange(1)}>+</span>
+        </div>
+      </DivQtd>
+      <div>R${price}</div>
+      <Cancel>
+        <MdCancel fontSize={23} />
+      </Cancel>
+    </ConteinerProduct>
+  )
 }
 
 const ConteinerProduct = styled.li`
