@@ -1,20 +1,28 @@
 import styled from "styled-components"
 import { RiShoppingBag3Line } from "react-icons/ri"
+import { useContext } from "react"
+import AuthContext from "../contexts/AuthContext"
 
-export default function CardProduct() {
+export default function CardProduct({ _id, name, description, price, image}) {
+    const {productsID, setProductsID} =useContext(AuthContext)
+    const selected = (id)=>{
+        if(!productsID.includes(id)){
+            setProductsID([...productsID, id])
+        }
+    }
     return (
         <ConteinerCard>
             <div>
                 <Img>
-                    <img src="imagen" alt='nome produto' />
+                    <img src={image} alt={name} />
                 </Img>
                 <InfPrice>
-                    <p>nome produto</p>
-                    <span>R$100</span>
+                    <p>{name}</p>
+                    <span>R${price}</span>
                 </InfPrice>
-                <Description>descrição</Description>
+                <Description>{description}</Description>
             </div>
-            <AddCart>
+            <AddCart  onClick={()=> selected(_id)}>
                 <RiShoppingBag3Line color="#fff" />
                 COMPRAR
             </AddCart>

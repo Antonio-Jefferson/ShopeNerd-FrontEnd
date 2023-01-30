@@ -1,24 +1,38 @@
+import { useState } from "react";
 import styled from "styled-components"
 
-export default function MenuFilter(){
-    return(
-        <Menu>
-            <ul>
-                <li>Processadores</li>
-                <li>Cooler do processador</li>
-                <li>Placa de vídeo</li>
-                <li>Placa-mãe</li>
-                <li>Memória</li>
-                <li>Armazenamento</li>
-                <li>Gabinetes</li>
-                <li>Fontes</li>
-                <li>Mousepad</li>
-                <li>Mouse</li>
-                <li>Monitor</li>
-                <li>Fone de ouvido</li>
-            </ul>
-        </Menu>
-    )
+export default function MenuFilter({ productsData }) {
+    const [selectedCategory, setSelectedCategory] = useState()
+    const handleClick = (category) => {
+        setSelectedCategory(category);
+    };
+
+    
+
+    return (
+        <>
+            <Menu>
+                <ul>
+                    <li onClick={() => handleClick('Processadores')}>Processadores</li>
+                    <li onClick={() => handleClick('Cooler')}>
+                        Cooler do processador
+                    </li>
+                    <li onClick={() => handleClick('Placa de vídeos')}>Placa de vídeo</li>
+                    <li onClick={() => handleClick('Placas mãe')}>Placa-mãe</li>
+                    <li onClick={() => handleClick('Memórias')}>Memória</li>
+                    <li onClick={() => handleClick('Armazenamentos')}>Armazenamento</li>
+                    <li onClick={() => handleClick('Gabinetes')}>Gabinetes</li>
+                    <li onClick={() => handleClick('Fontes')}>Fontes</li>
+                    <li onClick={() => handleClick('Mousepads')}>Mousepad</li>
+                    <li onClick={() => handleClick('Mouses')}>Mouse</li>
+                    <li onClick={() => handleClick('Monitores')}>Monitor</li>
+                    <li onClick={() => handleClick('Fones')}>
+                        Fone de ouvido
+                    </li>
+                </ul>
+            </Menu>
+        </>
+    );
 }
 
 const Menu = styled.div`

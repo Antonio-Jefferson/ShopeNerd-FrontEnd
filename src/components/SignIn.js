@@ -18,7 +18,7 @@ export default function SignIn() {
         setIsLoading(true);
         const body = { email, password };
         try {
-            const response = await axios.post("http://localhost:5005/sign-in", body);
+            const response = await axios.post("https://shope-nerd-api-v1.onrender.com/sign-in", body);
             setToken(response.data);
             setIsLoading(false);
             navigate("/");
@@ -31,8 +31,18 @@ export default function SignIn() {
     return (
         <>
             <StyledForm onSubmit={signIn}>
-                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" required disabled={isLoading} />
-                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Senha" required disabled={isLoading} />
+                <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email" placeholder="Email"
+                    required
+                    disabled={isLoading} />
+                <input
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    type="password"
+                    placeholder="Senha"
+                    required disabled={isLoading} />
                 <button type="submit" disabled={isLoading}>
                     {isLoading ? <ThreeDots
                         height="80"

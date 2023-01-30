@@ -1,24 +1,32 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
 import Cart from "../components/Cart"
 import Header from "../components/Header"
 import Menu from "../components/Menu"
 import MenuFilter from "../components/MenuFilter"
 import CardProduct from "../components/CardProduct"
-
+import CardSkeleton from "../components/CardSkeleton"
+import AuthContext from "../contexts/AuthContext"
 
 export default function HomePage() {
-    const [productsData, setProductsData] = useState([])
+    const { productsData, setProductsData } = useContext(AuthContext)
     const [isLoading, setIsLoading] = useState(true)
     const [cartMenu, setCartMenu] = useState(false);
     const [menuActive, setMenuActive] = useState(false)
 
-
-    useEffect(()=>{
+    function filterByCategory(category) {
+        if (category) {
+            const filteredProducts = productsData.filter(product => product.category === category)
+            setFilteredData(filteredProducts)
+        }
+        
+    }
+    console.log(productsData)
+    useEffect(() => {
         async function fetchData() {
             try {
-                const url = ""
+                const url = "https://shope-nerd-api-v1.onrender.com/products"
                 const { data } = await axios.get(url);
                 setProductsData(data)
                 setIsLoading(false)
@@ -32,20 +40,12 @@ export default function HomePage() {
     return (
         <ConteinerHome>
 
-            <Header  setMenuActive={setMenuActive} setCartMenu={setCartMenu} cartMenu={cartMenu}/>
+            <Header setMenuActive={setMenuActive} setCartMenu={setCartMenu} cartMenu={cartMenu} />
             <Main>
-                <MenuFilter />
+                <MenuFilter filterByCategory={filterByCategory} />
                 <DivCard>
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
+                    {isLoading && Array(30).fill(0).map(() => <CardSkeleton />)}
+                    {productsData.map(product => <CardProduct product={product} />)}
                 </DivCard>
             </Main>
             {menuActive && <Menu setMenuActive={setMenuActive} />}

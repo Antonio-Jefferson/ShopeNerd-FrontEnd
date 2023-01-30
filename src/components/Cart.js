@@ -1,8 +1,29 @@
 import styled from "styled-components"
 import { MdCancel } from "react-icons/md"
+import { useContext, useEffect, useState } from "react"
+import AuthContext from "../contexts/AuthContext"
+import ProductsCart from "../components/ProductsCart"
+import { Link } from "react-router-dom"
 
+ export default function Cart({ setCartMenu }) {
+    const { productsData, productsID } = useContext(AuthContext);
+    const [listProducts, setListProducts] = useState([]);
+    const [priceTotal, setPriceTotal] = useState(0);
+    const [quantity, setQuantity] = useState({});
 
-export default function Cart({ setCartMenu, }) {
+    useEffect(() => {
+        const filterProduct = productsData.filter((item) => productsID.includes(item._id));
+        setListProducts(filterProduct);
+        sumPrices();
+    }, [productsData, productsID, quantity]);
+
+    const sumPrices = () => {
+        let total = 0;
+        listProducts.forEach((product) => {
+            total += product.price * (quantity[product._id] || 1);
+        });
+        setPriceTotal(total);
+    };
 
     return (
         <ConteinerCart>
@@ -11,19 +32,33 @@ export default function Cart({ setCartMenu, }) {
                 <MdCancel onClick={() => setCartMenu(false)} fontSize={38} />
             </Top>
             <ProductList>
-               
+                {listProducts.map((product) => (
+                    <ProductsCart
+                        key={product._id}
+                        quantity={quantity[product._id] || 1}
+                        setQuantity={(qty) =>
+                            setQuantity({
+                                ...quantity,
+                                [product._id]: qty,
+                            })
+                        }
+                        product={product}
+                    />
+                ))}
             </ProductList>
             <Footer>
                 <div>
                     <p>Total</p>
-                    <span>R$100</span>
+                    <span>R${priceTotal}</span>
                 </div>
                 <Finalize>
-                    <h1>Finalizar Compra</h1>
+                    <Link to="/confirmation">
+                        <h1>Finalizar Compra</h1>
+                    </Link>
                 </Finalize>
             </Footer>
         </ConteinerCart>
-    )
+    );
 }
 
 const ConteinerCart = styled.div`

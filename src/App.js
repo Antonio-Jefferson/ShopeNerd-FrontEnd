@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthContext from "./contexts/AuthContext";
 import HomePage from "./pages/HomePage";
@@ -8,9 +8,11 @@ import ConfirmationPage from "./pages/ConfirmationPage";
 
 function App() {
   const [token, setToken] = useState("");
-
+  const [nameUser, setNameUser] = useState('')
+  const [productsData, setProductsData] = useState([])
+  const [productsID, setProductsID]= useState([])
   return (
-    <AuthContext.Provider value={{ token, setToken }}>
+    <AuthContext.Provider value={{ token, setToken,nameUser, setNameUser,productsData, setProductsData, productsID, setProductsID }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
