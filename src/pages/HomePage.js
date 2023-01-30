@@ -33,14 +33,15 @@ export default function HomePage() {
             try {
                 const url = "https://shope-nerd-api-v1.onrender.com/products"
                 const { data } = await axios.get(url);
-                setProductsData(MOCK)
+                setProductsData(data)
+                setFilteredData(data)
                 setIsLoading(false)
             } catch (error) {
                 console.log(error)
             }
         }
         fetchData()
-        setFilteredData(MOCK)
+        
     }, [])
 
     return (
