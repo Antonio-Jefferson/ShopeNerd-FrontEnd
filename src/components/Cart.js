@@ -22,6 +22,7 @@ import { Link } from "react-router-dom"
         listProducts.forEach((product) => {
             total += product.price * (quantity[product._id] || 1);
         });
+        console.log(total)
         setPriceTotal(total);
     };
 

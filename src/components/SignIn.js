@@ -18,7 +18,7 @@ export default function SignIn() {
         setIsLoading(true);
         const body = { email, password };
         try {
-            const response = await axios.post("https://shope-nerd-api-v1.onrender.com/sign-in", body);
+            const response = await axios.post("https://shope-nerd-api-v1.onrender.com/products", body);
             console.log(response.data)
             setToken(response.data.token);
             setNameUser(response.data.name);

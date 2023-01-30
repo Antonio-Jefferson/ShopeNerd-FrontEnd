@@ -16,7 +16,7 @@ export default function HomePage() {
     const [cartMenu, setCartMenu] = useState(false);
     const [menuActive, setMenuActive] = useState(false)
     const [filteredData, setFilteredData] = useState([])
-    console.log(productsData)
+    // console.log(productsData)
    
     function filterByCategory(category) {
         if (category) {
