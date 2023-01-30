@@ -8,7 +8,6 @@ import MenuFilter from "../components/MenuFilter"
 import CardProduct from "../components/CardProduct"
 import CardSkeleton from "../components/CardSkeleton"
 import AuthContext from "../contexts/AuthContext"
-import MOCK  from "../constants/mock"
 
 export default function HomePage() {
     const { productsData, setProductsData } = useContext(AuthContext)
@@ -33,14 +32,15 @@ export default function HomePage() {
             try {
                 const url = "https://shope-nerd-api-v1.onrender.com/products"
                 const { data } = await axios.get(url);
-                setProductsData(MOCK)
+                setProductsData(data)
+                setFilteredData(data)
                 setIsLoading(false)
             } catch (error) {
                 console.log(error)
             }
         }
         fetchData()
-        setFilteredData(MOCK)
+        
     }, [])
 
     return (
