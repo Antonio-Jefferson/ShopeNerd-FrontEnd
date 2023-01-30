@@ -4,6 +4,7 @@ import { MdCancel } from "react-icons/md"
 
 export default function ProductCart({ quantity, setQuantity, product }) {
   const { image, name, price } = product;
+  console.log(product)
   const handleQuantityChange = value => {
     setQuantity(quantity + value);
   };

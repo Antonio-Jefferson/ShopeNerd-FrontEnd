@@ -1,20 +1,36 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components'
 import axios from 'axios'
 import AuthContext from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 
-const itens = [{ name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }, { name: 'iphone', valor: 1500 }]
 export default function ConfirmationPage() {
-
+  const { productsData, productsID } = useContext(AuthContext);
   const [nome, setNome] = React.useState('')
   const [cidade, setCidade] = React.useState('')
   const [cep, setCep] = React.useState('')
   const [endereco, setEndereco] = React.useState('')
   const [numEndereco, setNumEndereco] = React.useState('')
   const [pagamento, setPagamento] = React.useState('')
+  const [listProducts, setListProducts] = React.useState([])
+  const [priceTotal, setPriceTotal] = React.useState(0);
+
   const nav = useNavigate()
+
+  useEffect(() => {
+    const filterProduct = productsData.filter((item) => productsID.includes(item._id));
+    setListProducts(filterProduct)
+    sumPrices();
+  }, []);
+
+  const sumPrices = () => {
+    let total = 0;
+    listProducts.forEach((product) => {
+      total += Number(product.price) ;
+    });
+    setPriceTotal(total);
+  };
 
   async function FinalizarCompra(e) {
     e.preventDefault()
@@ -25,11 +41,11 @@ export default function ConfirmationPage() {
         "Authorization": `Bearer ${token}`
       }
     }
-    try{
-      await axios.put('http://localhost:5005/products', { id: ["63d525649159378649bc33f1", "63d5260d9159378649bc33f2"] }, config)
+    try {
+      await axios.put("https://shope-nerd-api-v1.onrender.com/products", { id: productsID }, config)
       alert('Obrigado pela compra!')
       nav("/")
-    } catch(err) {
+    } catch (err) {
       alert(err.message)
       setNome('')
       setCidade('')
@@ -37,7 +53,7 @@ export default function ConfirmationPage() {
       setEndereco('')
       setNumEndereco('')
     }
-    
+
 
   }
 
@@ -50,10 +66,10 @@ export default function ConfirmationPage() {
         <Pedidos>
           <div className='container'>
             <div>
-              {itens.map((item) =>
+              {listProducts.map((item) =>
                 <span>
                   <p>{item.name}</p>
-                  <p>R$ {item.valor.toFixed(2)} </p>
+                  <p>R$ {Number(item.price).toFixed(2)} </p>
                 </span>
 
               )}
@@ -61,7 +77,7 @@ export default function ConfirmationPage() {
             </div>
             <span className='total'>
               <p>Total</p>
-              <p>R$ 54646.00</p>
+              <p>R$ {priceTotal.toFixed(2)}</p>
             </span>
           </div>
         </Pedidos>
@@ -180,6 +196,8 @@ const Pedidos = styled.div`
     font-weight: 500;
     line-height: 29px;
     letter-spacing: 0px;
+
+    min-width: 133px;
   
   }
   span{
