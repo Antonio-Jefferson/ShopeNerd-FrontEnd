@@ -14,6 +14,7 @@ export default function HomePage() {
     const [isLoading, setIsLoading] = useState(true)
     const [cartMenu, setCartMenu] = useState(false);
     const [menuActive, setMenuActive] = useState(false)
+    const [filteredData, setFilteredData] = useState([])
 
     function filterByCategory(category) {
         if (category) {
