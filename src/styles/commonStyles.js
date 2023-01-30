@@ -19,6 +19,7 @@ export const ConteinerHeader = styled.div`
     position: fixed;
     top:0px;
     right: 0px;
+    z-index: 10;
     @media (max-width:1255px) {
         input,span{
             display: none;

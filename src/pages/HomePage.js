@@ -20,7 +20,9 @@ export default function HomePage() {
    
     function filterByCategory(category) {
         if (category) {
+            
             const filteredProducts = productsData.filter(product => product.category === category)
+            console.log(filteredProducts)
             setFilteredData(filteredProducts)
         }else{
             setFilteredData(productsData)
@@ -38,6 +40,7 @@ export default function HomePage() {
             }
         }
         fetchData()
+        setFilteredData(MOCK)
     }, [])
 
     return (
@@ -48,7 +51,7 @@ export default function HomePage() {
                 <MenuFilter filterByCategory={filterByCategory} />
                 <DivCard>
                     {isLoading && Array(30).fill(0).map(() => <CardSkeleton />)}
-                    {productsData.map(product => <CardProduct product={product} />)}
+                    {filteredData.map(product => <CardProduct product={product} />)}
                 </DivCard>
             </Main>
             {menuActive && <Menu setMenuActive={setMenuActive} />}

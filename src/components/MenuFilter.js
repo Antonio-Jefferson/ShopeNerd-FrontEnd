@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 export default function MenuFilter({filterByCategory }) {
     const handleClick = (category) => {
+        console.log(category)
         filterByCategory(category);
     };
 
@@ -10,12 +11,12 @@ export default function MenuFilter({filterByCategory }) {
         <>
             <Menu className="visibilete">
                 <ul>
-                    <li onClick={() => handleClick('Processadores')}>Processadores</li>
+                    <li onClick={() => handleClick('Processador')}>Processadores</li>
                     <li onClick={() => handleClick('Cooler')}>
                         Cooler do processador
                     </li>
                     <li onClick={() => handleClick('Placa de vídeos')}>Placa de vídeo</li>
-                    <li onClick={() => handleClick('Placas mãe')}>Placa-mãe</li>
+                    <li onClick={() => handleClick('Placa mãe')}>Placa-mãe</li>
                     <li onClick={() => handleClick('Memórias')}>Memória</li>
                     <li onClick={() => handleClick('Armazenamentos')}>Armazenamento</li>
                     <li onClick={() => handleClick('Gabinetes')}>Gabinetes</li>
