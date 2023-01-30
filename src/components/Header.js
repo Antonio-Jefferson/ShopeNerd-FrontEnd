@@ -14,14 +14,14 @@ export default function Header({ setCartMenu, cartMenu, setMenuActive }) {
             </Logo>
             <Cart onClick={() => setCartMenu(!cartMenu)}>
                 <AiOutlineShoppingCart height={18} width={19} />
-                <span>{productsID.length}</span>
+                <div>{productsID.length}</div>
             </Cart>
             <div>
                 <input type="text" placeholder="Pesquisar" />
-                <FaSearch fontSize={25} color="#FFF" />
+                <span><FaSearch fontSize={25} color="#FFF" /></span>
             </div>
             {nameUser ? <p>Olá, {nameUser}</p>:<p>Faça <Link to={"/sign-in"}>LOGIN</Link>  ou <br /> crie seu <Link to={"/sign-up"}>CADASTRO</Link></p>}
-            <AiOutlineMenuFold onClick={()=> setMenuActive(true)} fontSize={45} color="#fff" />
+            <span><AiOutlineMenuFold onClick={()=> setMenuActive(true)} fontSize={45} color="#fff" /></span>
         </ConteinerHeader>
     )
 }

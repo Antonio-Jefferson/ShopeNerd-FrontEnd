@@ -8,6 +8,7 @@ import MenuFilter from "../components/MenuFilter"
 import CardProduct from "../components/CardProduct"
 import CardSkeleton from "../components/CardSkeleton"
 import AuthContext from "../contexts/AuthContext"
+import MOCK  from "../constants/mock"
 
 export default function HomePage() {
     const { productsData, setProductsData } = useContext(AuthContext)
@@ -15,7 +16,8 @@ export default function HomePage() {
     const [cartMenu, setCartMenu] = useState(false);
     const [menuActive, setMenuActive] = useState(false)
     const [filteredData, setFilteredData] = useState([])
-
+    console.log(productsData)
+   
     function filterByCategory(category) {
         if (category) {
             const filteredProducts = productsData.filter(product => product.category === category)
@@ -29,7 +31,7 @@ export default function HomePage() {
             try {
                 const url = "https://shope-nerd-api-v1.onrender.com/products"
                 const { data } = await axios.get(url);
-                setProductsData(data)
+                setProductsData(MOCK)
                 setIsLoading(false)
             } catch (error) {
                 console.log(error)
@@ -46,7 +48,7 @@ export default function HomePage() {
                 <MenuFilter filterByCategory={filterByCategory} />
                 <DivCard>
                     {isLoading && Array(30).fill(0).map(() => <CardSkeleton />)}
-                    {filteredData.map(product => <CardProduct product={product} />)}
+                    {productsData.map(product => <CardProduct product={product} />)}
                 </DivCard>
             </Main>
             {menuActive && <Menu setMenuActive={setMenuActive} />}
@@ -65,7 +67,7 @@ const Main = styled.div`
 `
 const DivCard = styled.div`
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 125px 20px 20px 350px;;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
