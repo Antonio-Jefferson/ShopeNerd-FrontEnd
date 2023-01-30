@@ -24,7 +24,7 @@ export default function ConfirmationPage() {
     sumPrices();
   }, []);
 
-  const sumPrices = () => {
+  func sumPrices (){
     let total = 0;
     listProducts.forEach((product) => {
       total += Number(product.price) ;
