@@ -7,8 +7,6 @@ export default function MenuFilter({ productsData }) {
         setSelectedCategory(category);
     };
 
-    
-
     return (
         <>
             <Menu>
