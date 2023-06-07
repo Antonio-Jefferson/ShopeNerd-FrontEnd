@@ -1,70 +1,77 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ShopeNerd
 
-## Available Scripts
+The goal of this project is to provide a complete implementation of a virtual store, fornt and back including essential features for online shopping. In addition, we seek to create an intuitive and attractive interface for users, providing a pleasant shopping experience.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+How to run the project on your machine:
+```bash
+  git clone https://github.com/Antonio-Jefferson/ShopeNerd-FrontEnd.git
+```
+Open the file:
+```bash
+  cd folder-name
+```
+install the dependencies:
+```bash
+  npm install
+```
+run the project:
+```bash
+  npm start
+````
+Abra o aplicativo no navegador em http://localhost:3000
+## 🛠 Skills
+The Track-it  mobile site project will be implemented using the following technologies:
+- HTML
+- JavaScript
+- Node
+- React
+- Styled-Component
+- react-ciculoprogresso
+- react-CreatContext
+- react-icons
+- react-loader-spinner
+- react-loading-skeleton
+- React-Router
+- Axios
+- Figma.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
+#### User Registration: 
+- Users will be able to register in the application by providing information such as name, email and password. This information will be securely stored in the database.
 
-### `npm test`
+#### User Login: 
+- After registering, users will be able to login to the application using their e-mail and password. This process will ensure proper authentication and authorization to access the unique functionality of each user's account.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Product Catalog: 
+- The virtual store will have an extensive catalog of technological products. Each product will be presented in detail, with information about specifications, images and prices.
 
-### `npm run build`
+#### Cart System: 
+- Users will be able to add products to the shopping cart, view selected items, adjust quantities and remove products, ensuring a personalized shopping experience.
+#### Search and Filters: 
+- It will be possible to carry out searches for specific products and apply filters to refine the results.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Deploy
+link: https://shope-nerd.vercel.app/
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Authors
+- [@Antonio-Jefferson](https://github.com/Antonio-Jefferson)
+- [@gaabrielmooreira](https://github.com/gaabrielmooreira)
+- [@GustavoCMatias](https://github.com/GustavoCMatias)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)]()
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/antjefferson/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/ant_jeff_)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
